@@ -57,7 +57,7 @@ module Containers
     end
 
     def initialize(pairs)
-      pairs = pairs.to_a.map { |k, p] [k, p.to_proc] }
+      pairs = pairs.to_a.map { |k, p| [k, p.to_proc] }
 
       eigen_class =
         class << self
