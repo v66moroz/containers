@@ -57,7 +57,7 @@ module Containers
     end
 
     def initialize(pairs)
-      pairs = pairs.to_a.clone
+      pairs = pairs.to_a.map { |k, p] [k, p.to_proc] }
 
       eigen_class =
         class << self
@@ -66,7 +66,7 @@ module Containers
 
       eigen_class.instance_eval do
         pairs.each do |k, p|
-          define_method(k, &p.to_proc)
+          define_method(k, &p)
         end
 
         define_method(:each) do |&block|
